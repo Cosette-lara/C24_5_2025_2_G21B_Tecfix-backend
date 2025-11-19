@@ -44,6 +44,7 @@ CREATE TABLE "Salones" (
         ON DELETE CASCADE,
     
     UNIQUE("id_pabellon", "nombre_salon")
+);
 
 --Creación de Tablas de Entidad
 
