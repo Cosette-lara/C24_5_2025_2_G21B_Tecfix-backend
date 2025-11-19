@@ -1,0 +1,39 @@
+# --- Dependencias ---
+node_modules/
+package-lock.json # Opcional: Algunos prefieren subirlo, otros no. En equipos grandes se sube.
+yarn.lock
+
+# --- Seguridad (¡MUY IMPORTANTE!) ---
+# Nunca subas tus claves o contraseñas a Git
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Archivos generados por el sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Logs de errores ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# --- Editor / IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Archivos subidos por usuarios (Multer) ---
+# Ignorar todas las fotos dentro de uploads
+uploads/*
+# PERO no ignorar el archivo .gitkeep (para que la carpeta vacía se suba al repo)
+!uploads/.gitkeep
+
+# --- Otros ---
+dist/
+coverage/
