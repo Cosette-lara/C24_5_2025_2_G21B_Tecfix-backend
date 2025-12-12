@@ -1,18 +1,16 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+const auth = require('../controllers/auth.controller');
+const ubi = require('../controllers/ubicacion.controller');
+const tipo = require('../controllers/tipo.controller');
+const inc = require('../controllers/incidencia.controller');
+const { uploadFotosReporte } = require('../middleware/upload.middleware');
 
-// Importar todos los enrutadores específicos
-const authRoutes = require('./auth.routes');
-const incidenciaRoutes = require('./incidencia.routes');
-const tecnicoRoutes = require('./tecnico.routes');
-const supervisorRoutes = require('./supervisor.routes');
-const ubicacionRoutes = require('./ubicacion.routes'); 
-
-// Definir las rutas base para cada módulo
-router.use('/auth', authRoutes);
-router.use('/incidencias', incidenciaRoutes);
-router.use('/tecnico', tecnicoRoutes);
-router.use('/supervisor', supervisorRoutes);
-router.use('/ubicaciones', ubicacionRoutes); 
+// Rutas directas para simplificar
+router.post('/auth/login', auth.login);
+router.get('/ubicacion/pabellones', ubi.getPabellones);
+router.get('/ubicacion/salones/:id', ubi.getSalones);
+router.get('/tipos', tipo.getTipos);
+router.post('/incidencia/crear', uploadFotosReporte, inc.crearIncidencia);
+router.get('/incidencia/mis-reportes/:id', inc.getMisIncidencias);
 
 module.exports = router;
